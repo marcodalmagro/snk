@@ -1,8 +1,6 @@
-name: Generate Snake animation
+name: Generate Snake Animation
 
 on:
-  schedule:
-    - cron: "0 0 * * *" # Gera a cobrinha a cada 24 horas
   push:
     branches:
       - main
@@ -14,12 +12,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Generate Snake animation
+      - name: Generate snake animation
         uses: Platane/snk@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-
-
-
-
-
+          github_user_name: ${{ github.actor }}  # Seu nome de usuário no GitHub
+          svg_out_path: output/github-contribution-grid-snake-dark.svg  # Caminho para o arquivo gerado
