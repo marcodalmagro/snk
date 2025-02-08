@@ -1,0 +1,25 @@
+name: Generate Snake animation
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # Gera a cobrinha a cada 24 horas
+  push:
+    branches:
+      - main
+
+jobs:
+  generate-snake:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Generate Snake animation
+        uses: Platane/snk@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+
+
+
+
